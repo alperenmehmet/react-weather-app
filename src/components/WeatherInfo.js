@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getWeather } from '../utils/constants';
+import { LocationListModal } from './LocationListModal';
 
-export const WeatherInfo = () => {
+export const WeatherInfo = ({ cityName }) => {
+  const [weather, setWeather] = useState();
+  useEffect(() => {
+    getWeather('london').then((res) => {
+      setWeather(res);
+      console.log(weather);
+    });
+  }, []);
+
   return (
     <div className='info-side'>
       <div className='today-info-container'>
@@ -48,11 +58,7 @@ export const WeatherInfo = () => {
             <span className='day-temp'>19°C</span>
           </li>
         </ul>
-        <div>
-          <form>
-            <input type='text' placeholder='Search' />
-          </form>
-        </div>
+        <LocationListModal />
       </div>
     </div>
   );

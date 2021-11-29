@@ -227,6 +227,7 @@ body {
   -o-transition: transform 200ms ease;
   transition: transform 200ms ease;
   transition: transform 200ms ease, -webkit-transform 200ms ease;
+  margin-top: 2rem;
 }
 
 .location-button:hover {
@@ -241,10 +242,6 @@ body {
   margin-right: 5px;
 }
 
-input {
-  width: 75%;
+.select-location {
   margin: 10px 35px;
-  margin-top: 3rem;
-  line-height: 2rem;
-  border-radius: 8px;
 }
