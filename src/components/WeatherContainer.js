@@ -1,15 +1,6 @@
 import React, { useEffect } from 'react';
 
-const URL = `https://api.openweathermap.org/data/2.5/hourly?q=London,uk&APPID=${API_KEY}`;
-
 export const WeatherContainer = () => {
-  useEffect(() => {
-    fetch(URL)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-  }, []);
   return (
     <div className='weather-side'>
       <div className='weather-gradient'></div>

@@ -47,8 +47,12 @@ export const WeatherInfo = () => {
             <span className='day-name'>Fry</span>
             <span className='day-temp'>19°C</span>
           </li>
-          <div className='clear'></div>
         </ul>
+        <div>
+          <form>
+            <input type='text' placeholder='Search' />
+          </form>
+        </div>
       </div>
     </div>
   );
