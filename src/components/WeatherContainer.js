@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useGlobalContext } from '../context';
+import { getWeather } from '../utils/constants';
 
 export const WeatherContainer = () => {
+  const { city, data, setData } = useGlobalContext();
+
+  useEffect(() => {
+    getWeather(city).then((res) => {
+      setData(res);
+    });
+  }, []);
+  console.log(city);
+  console.log(data);
+
   return (
     <div className='weather-side'>
       <div className='weather-gradient'></div>

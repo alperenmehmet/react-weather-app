@@ -1,16 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { getWeather } from '../utils/constants';
-import { LocationListModal } from './LocationListModal';
+import React from 'react';
 
-export const WeatherInfo = ({ cityName }) => {
-  const [weather, setWeather] = useState();
-  useEffect(() => {
-    getWeather('london').then((res) => {
-      setWeather(res);
-      console.log(weather);
-    });
-  }, []);
-
+export const WeatherInfo = () => {
   return (
     <div className='info-side'>
       <div className='today-info-container'>
@@ -58,7 +48,6 @@ export const WeatherInfo = ({ cityName }) => {
             <span className='day-temp'>19°C</span>
           </li>
         </ul>
-        <LocationListModal />
       </div>
     </div>
   );

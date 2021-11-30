@@ -245,3 +245,22 @@ body {
 .select-location {
   margin: 10px 35px;
 }
+
+.city-container {
+  margin: 10px 35px;
+  display: flex;
+}
+
+.city-input {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 3rem;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  border-color: #343d4b;
+}
+.btn {
+  height: 3rem;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
