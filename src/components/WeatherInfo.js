@@ -1,4 +1,9 @@
+import React from 'react';
+import { useGlobalContext } from '../context';
+
 const WeatherInfo = () => {
+  const { weather } = useGlobalContext();
+  console.log(weather);
   return (
     <div className='container'>
       <div className='weather-side'>
@@ -7,7 +12,9 @@ const WeatherInfo = () => {
           <h2 className='date-dayname'>Tuesday</h2>
           <span className='date-day'>15 Jan 2019</span>
           <i className='location-icon' data-feather='map-pin'></i>
-          <span className='location'>Paris, FR</span>
+          <span className='location'>
+            {weather.city.name}, {weather.city.country}
+          </span>
         </div>
         <div className='weather-container'>
           <i className='weather-icon' data-feather='sun'></i>

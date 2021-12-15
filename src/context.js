@@ -4,28 +4,31 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [weather, setWeather] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('london');
 
   const fetchWeather = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=london&APPID=${process.env.REACT_APP_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${searchQuery}&APPID=${process.env.REACT_APP_API_KEY}&units=metric`
       );
       const data = await response.json();
-      console.log(data);
-      if (data) {
-        setWeather(data);
-      }
+      setWeather(data);
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  }, [searchQuery]);
 
   useEffect(() => {
     fetchWeather();
-  }, [setWeather]);
+  }, [fetchWeather, searchQuery]);
 
-  return <AppContext.Provider value={{}}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider
+      value={{ weather, searchQuery, setWeather, setSearchQuery }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 export const useGlobalContext = () => {

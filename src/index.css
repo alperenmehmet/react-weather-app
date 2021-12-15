@@ -131,6 +131,7 @@ body {
 .today-info {
   padding: 15px;
   margin: 0 25px 25px 25px;
+  /* 	box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25); */
   border-radius: 10px;
 }
 
@@ -154,7 +155,6 @@ body {
   -webkit-box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  /* background: #; */
 }
 
 .week-list > li {
@@ -227,7 +227,6 @@ body {
   -o-transition: transform 200ms ease;
   transition: transform 200ms ease;
   transition: transform 200ms ease, -webkit-transform 200ms ease;
-  margin-top: 2rem;
 }
 
 .location-button:hover {
@@ -242,25 +241,17 @@ body {
   margin-right: 5px;
 }
 
-.select-location {
-  margin: 10px 35px;
+form {
+  margin-bottom: 15px;
 }
 
-.city-container {
-  margin: 10px 35px;
-  display: flex;
-}
-
-.city-input {
-  width: 100%;
-  height: 3rem;
+input[type='text'] {
   margin-bottom: 3rem;
+  width: 100%;
+  padding: 15px;
   border-radius: 5px;
   font-size: 1.5rem;
-  border-color: #343d4b;
-}
-.btn {
-  height: 3rem;
-  font-size: 1.5rem;
-  margin-left: 10px;
+  color: #fff;
+  background-color: #222831;
+  border: none;
 }
