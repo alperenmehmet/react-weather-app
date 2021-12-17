@@ -9,14 +9,14 @@ const AppProvider = ({ children }) => {
   const fetchWeather = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${searchQuery}&APPID=${process.env.REACT_APP_API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?q=london&APPID=${process.env.REACT_APP_API_KEY}d&units=metric`
       );
       const data = await response.json();
       setWeather(data);
     } catch (err) {
       console.log(err);
     }
-  }, [searchQuery]);
+  }, []);
 
   useEffect(() => {
     fetchWeather();

@@ -4,13 +4,14 @@ import { useGlobalContext } from '../context';
 const WeatherInfo = () => {
   const { weather } = useGlobalContext();
   console.log(weather);
+
   return (
     <div className='container'>
       <div className='weather-side'>
         <div className='weather-gradient'></div>
         <div className='date-container'>
-          <h2 className='date-dayname'>Tuesday</h2>
-          <span className='date-day'>15 Jan 2019</span>
+          <h2 className='date-dayname'>{weather.list[0].dt_txt}</h2>
+          <span className='date-day'>{weather.list[0].dt_txt}</span>
           <i className='location-icon' data-feather='map-pin'></i>
           <span className='location'>
             {weather.city.name}, {weather.city.country}
@@ -18,8 +19,8 @@ const WeatherInfo = () => {
         </div>
         <div className='weather-container'>
           <i className='weather-icon' data-feather='sun'></i>
-          <h1 className='weather-temp'>29°C</h1>
-          <h3 className='weather-desc'>Sunny</h3>
+          <h1 className='weather-temp'>{weather.list[0].main.temp}°C</h1>
+          <h3 className='weather-desc'>{weather.list[0].weather[0].main}</h3>
         </div>
       </div>
       <div className='info-side'>
@@ -27,17 +28,17 @@ const WeatherInfo = () => {
           <div className='today-info'>
             <div className='precipitation'>
               <span className='title'>PRECIPITATION</span>
-              <span className='value'>0 %</span>
+              <span className='value'>{weather.list[0].main.humidity} %</span>
               <div className='clear'></div>
             </div>
             <div className='humidity'>
               <span className='title'>HUMIDITY</span>
-              <span className='value'>34 %</span>
+              <span className='value'>{weather.list[0].main.humidity} %</span>
               <div className='clear'></div>
             </div>
             <div className='wind'>
               <span className='title'>WIND</span>
-              <span className='value'>0 km/h</span>
+              <span className='value'>{weather.list[0].wind.speed} km/h</span>
               <div className='clear'></div>
             </div>
           </div>
@@ -46,23 +47,23 @@ const WeatherInfo = () => {
           <ul className='week-list'>
             <li className='active'>
               <i className='day-icon' data-feather='sun'></i>
-              <span className='day-name'>Tue</span>
-              <span className='day-temp'>29°C</span>
+              <span className='day-name'>{weather.list[0].dt_txt}</span>
+              <span className='day-temp'>{weather.list[0].main.temp}°C</span>
             </li>
             <li>
               <i className='day-icon' data-feather='cloud'></i>
-              <span className='day-name'>Wed</span>
-              <span className='day-temp'>21°C</span>
+              <span className='day-name'>{weather.list[1].dt_txt}</span>
+              <span className='day-temp'>{weather.list[1].main.temp}°C</span>
             </li>
             <li>
               <i className='day-icon' data-feather='cloud-snow'></i>
-              <span className='day-name'>Thu</span>
-              <span className='day-temp'>08°C</span>
+              <span className='day-name'>{weather.list[2].dt_txt}</span>
+              <span className='day-temp'>{weather.list[2].main.temp}°C</span>
             </li>
             <li>
               <i className='day-icon' data-feather='cloud-rain'></i>
-              <span className='day-name'>Fry</span>
-              <span className='day-temp'>19°C</span>
+              <span className='day-name'>{weather.list[3].dt_txt}</span>
+              <span className='day-temp'>{weather.list[3].main.temp}°C</span>
             </li>
             <div className='clear'></div>
           </ul>
