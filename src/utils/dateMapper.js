@@ -1,10 +1,11 @@
-import React from 'react';
+export const dateMapper = (d) => {
+  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-export const dateMapper = () => {
-  const newDate = new Date(props.date);
-  const day = newDate.toLocaleString('en-US', { day: '2-digit' });
-  const month = newDate.toLocaleString('en-US', { month: '2-digit' });
-  const year = newDate.getFullYear();
+  let day = days[d.getDay()];
+  let date = d.getDate();
+  let month = months[d.getMonth()];
+  let year = d.getFullYear();
 
-  return `${day} ${month} ${year}`;
-};
+  return `${day} ${date} ${month} ${year}`
+}
